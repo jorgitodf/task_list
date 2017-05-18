@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    div(class="row")
+        div(class="col s6 offset-s3 form-login")
+          div(class="col s12 center")
+            h3 Login
+            form(method="post", action="/users/auth")
+                div(class="input-field col s12")
+                    input(type="text", class="validate", placeholder="Nome de Usuário", name="username")
+                div(class="input-field col s12")
+                    input(type="password", class="validate", placeholder="Senha", name="password")
+                div(class="input-field col s12 right")
+                    button(type="submit", class="btn-flat teal") Logar

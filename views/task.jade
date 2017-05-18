@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    div(class="row")
+        div(class="col s6 offset-s3 panel")
+          div(class="col s12 center")
+              h3=task.name
+              a(href="/tasks", class="btn-flat teal") Voltar
+            table
+                thead
+                    tr
+                      th Nome
+                      th Done
+                tbody
+                    tr
+                      td=task.name
+                      td=task.done

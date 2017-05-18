@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    div(class="row")
+        div(class="col s6 offset-s3 panel")
+          div(class="col s12 center")
+              h3 Lista de Tasks
+              a(href="/tasks/create", class="btn-flat teal") Criar
+            table
+                thead
+                    tr
+                      th Nome
+                      th Done
+                      th Ação
+                tbody
+                  each task in tasks
+                    tr
+                      td=task.name
+                      td=task.done
+                      td
+                        form(method="POST", class="col s4", enctype=("application/x-www-form-urlencoded"), action="/tasks/" + task.id)
+                            input(type="hidden", name="_method", value="DELETE")
+                            input(type="submit", class="btn-flat red", value="Apagar")
+                        a(href="/tasks/edit/" + task.id, class="btn-flat blue col s3") Editar
+                        a(href="/tasks/" + task.id, class="btn-flat green col s3") Ver
